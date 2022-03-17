@@ -39,7 +39,6 @@ public class Timer
 		while (unpackedCondition.getAsBoolean() && !timeOut())
 		{
 			action.accept(timeLeft());
-			;
 		}
 	}
 }
