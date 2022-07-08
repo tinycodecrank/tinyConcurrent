@@ -34,6 +34,18 @@ public final class YieldSupplier<Ret> implements Iterator<Ret>, AutoCloseable
 		return generator.get(index++).get();
 	}
 	
+	/**
+	 * Calls next and then close
+	 * 
+	 * @return The next value
+	 */
+	public Ret last()
+	{
+		final var ret = next();
+		close();
+		return ret;
+	}
+	
 	public int size()
 	{
 		return generator.size() - index;
