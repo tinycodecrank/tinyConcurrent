@@ -4,7 +4,7 @@ import java.util.concurrent.TimeoutException;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-import de.tinycodecrank.monads.Opt;
+import de.tinycodecrank.monads.opt.Opt;
 
 public final class BlockingCall<R>
 {

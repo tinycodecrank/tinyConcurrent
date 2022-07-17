@@ -3,7 +3,7 @@ package de.tinycodecrank.concurrent;
 import java.util.function.BooleanSupplier;
 import java.util.function.LongConsumer;
 
-import de.tinycodecrank.monads.Opt;
+import de.tinycodecrank.monads.opt.Opt;
 
 public class Timer
 {
