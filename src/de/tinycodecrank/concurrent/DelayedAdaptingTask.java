@@ -44,6 +44,11 @@ public final class DelayedAdaptingTask<C>
 			abort		= false;
 			value		= updater.apply(value);
 			waitUntil	= System.currentTimeMillis() + timeOut;
+			if (finished)
+			{
+				finished = false;
+				new Thread(this::run).start();
+			}
 		}
 	}
 	
@@ -53,6 +58,23 @@ public final class DelayedAdaptingTask<C>
 	public void abort()
 	{
 		this.abort = true;
+	}
+	
+	/**
+	 * executes immediately
+	 */
+	public void expedite()
+	{
+		synchronized (executor)
+		{
+			abort		= false;
+			waitUntil	= System.currentTimeMillis();
+			if (finished)
+			{
+				finished = false;
+				new Thread(this::run).start();
+			}
+		}
 	}
 	
 	/**
